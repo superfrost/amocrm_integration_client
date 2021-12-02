@@ -9,7 +9,7 @@ export const Integration = () => {
 
   const handleSubmit = async (e) => {
     setError('')
-    const URL_integration = 'http://localhost:5000/integration'
+    const URL_integration = '/integration'
     e.preventDefault()
     const domain = e.target[0].value;
     const clientId = e.target[1].value;

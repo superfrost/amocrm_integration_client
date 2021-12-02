@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 function MainBoard() {
 
-  const server_URL = 'http://localhost:5000/api'
+  const server_URL = '/api'
   const [data, setData] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()

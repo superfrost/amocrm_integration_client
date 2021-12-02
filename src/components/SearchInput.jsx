@@ -24,7 +24,7 @@ export default function SearchInput({setData, setIsLoading}) {
   }
 
   async function getSearchData(searchValue) {
-    const url = `http://localhost:5000/api/?search=${searchValue}`
+    const url = `/api/?search=${searchValue}`
     const response = await fetch(url)
     if(response.ok) {
       const data = await response.json()
