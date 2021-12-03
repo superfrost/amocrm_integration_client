@@ -1,35 +1,33 @@
 import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { GrClose } from 'react-icons/gr'
+import useDebounce from '../hooks/useDebouce'
 
 export default function SearchInput({setData, setIsLoading}) {
 
   const [searchValue, setSearchValue] = useState('')
+  const searchDebounce = useDebounce(getSearchData, 500)
 
-  const handleChangeSearchValue = async (e) => {
+  const handleChangeSearchValue = (e) => {
     setSearchValue(e.target.value)
     if(e.target.value.length > 2 ) {
-      setIsLoading(true)
-      const data = await getSearchData(e.target.value)
-      console.log(e.target.value);
-      setData(data)
-      setIsLoading(false)
+      searchDebounce(e.target.value)
     }
     if(!e.target.value) {
-      setIsLoading(true)
-      const data = await getSearchData(e.target.value)
-      setData(data)
-      setIsLoading(false)
+      searchDebounce()
     }
   }
 
-  async function getSearchData(searchValue) {
+  async function getSearchData(searchValue = '') {
+    setIsLoading(true)
     const url = `/api/?search=${searchValue}`
     const response = await fetch(url)
+    let data = ''
     if(response.ok) {
-      const data = await response.json()
-      return data
+      data = await response.json()
     }
+    setData(data)
+    setIsLoading(false)
   }
 
   const cleanSearchValue = () => {
