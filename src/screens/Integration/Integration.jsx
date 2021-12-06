@@ -50,11 +50,11 @@ export const Integration = () => {
           <div className={styles.formDiv}>
             <label htmlFor="domain">Ваш домен: https://<b>your_domain</b>.amocrm.ru</label>
             <input type="text" name="domain" id="domain" required/>
-            <label htmlFor="clientId">ID инеграции:</label>
+            <label htmlFor="clientId">ID интеграции:</label>
             <input type="text" name="clientId" id="clientId" required/>
             <label htmlFor="clientSecret">Секретный ключ:</label>
             <input type="text" name="clientSecret" id="clientSecret" required/>
-            <label htmlFor="clientCode">Код вторизации:</label>
+            <label htmlFor="clientCode">Код авторизации:</label>
             <input type="text" name="clientCode" id="clientCode" required/>
             <label htmlFor="redirectUri">Ссылка перенаправления: </label>
             <input type="text" name="redirectUri" id="redirectUri" required/>
