@@ -38,12 +38,7 @@ export default function SearchInput({setData, setIsLoading}) {
   return (
     <div className="search">
       <input type="text" name="search" id="search" value={searchValue} onChange={handleChangeSearchValue} placeholder="Поиск" />
-      {searchValue
-      ?
-      <GrClose onClick={cleanSearchValue} className='search-cross'/>
-      :
-      <GrClose visibility='hidden' className='search-cross'/>
-      }
+      <GrClose onClick={cleanSearchValue} className='search-cross' visibility={!searchValue && 'hidden'}/>
       <FaSearch className='search-icon'/>
     </div>
   )
